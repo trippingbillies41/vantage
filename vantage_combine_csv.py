@@ -18,11 +18,7 @@ def csv_combine():
 	output_file_name = run_name + '_combined_file.csv'
 	  
 	df_qual = pd.read_csv(csv_qual, skiprows=12)
-	df_qual.to_csv('testqual.csv', index=False)
 	df_ruo = pd.read_csv(csv_ruo)
-
-	print("RUO File: ", csv_ruo)
-	print("Qual File: ", csv_qual)
 
 	def well_standard(x):
 	    if len(x) < 3:
@@ -54,6 +50,7 @@ def csv_combine():
 	df_new = df_new.sort_values(by = ['Well', 'Target'])
 
 	df_new.to_csv(output_file_name, index=False)
+	print("Success!")
 
 csv_combine()
 start_again = 'yes'
